@@ -1,0 +1,139 @@
+// -------------------------------------
+//   Layout
+// -------------------------------------
+// ----- Margin, Padding, and General Sizing of Main Containers
+// -------------------------------------
+
+html,
+body {
+  font-size: 100%; 
+}
+
+body {
+  background: $carrot;
+  color: #222222;
+  padding: 0;
+  margin: 0;
+  font-family: $helvetica;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  position: relative;
+  cursor: default; 
+}
+
+// SIMPLIFIED GRID
+
+// .row { 
+// 	float: left;
+// 	width: 100%; 
+// 	@include row();
+// }
+.row { 
+	@include row();
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	max-width: 62.5rem;
+	*zoom: 1;
+	
+	@include row();
+	@include outer-container;
+	@include mq(iphone) {
+		max-width: 320px;
+	}
+	@include mq(android) {
+		max-width: 480px;
+	}
+	@include mq(tablet) {
+		max-width: 768px;
+	}
+	@include mq(laptop) {
+		max-width: 960px;
+	}
+	@include mq(desktop) {
+		max-width: 1280px;
+	}
+}
+
+.whole {
+	@include span-columns(12);
+	@include media(min-width 320px max-width 480px, 6) {
+    @include span-columns(6);
+ 	}
+ }
+
+.half { 
+	@include span-columns(6);
+	@include media(min-width 320px max-width 480px, 6) {
+    @include span-columns(6);
+	}
+}
+
+.third { 
+	@include span-columns(4);
+	@include media(min-width 320px max-width 480px, 6) {
+    @include span-columns(6);
+	}
+}
+
+.fourth { 
+	@include span-columns(3);
+	@include media(min-width 320px max-width 480px, 6) {
+    @include span-columns(6);
+  }
+}
+
+.sixth { 
+	@include span-columns(2);
+	@include media(min-width 320px max-width 480px, 6) {
+    @include span-columns(6);
+	}
+}
+
+.one { @include span-columns(1); }
+
+.grid-example {
+	float: left;
+	height: 100px;
+	background: $muteNavy;
+	margin-bottom: 2.35765%;
+}
+
+.page-wrap {
+	width: 100%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 15px;
+	@include row();
+	@include outer-container;
+	@include mq(iphone) {
+		max-width: 320px;
+	}
+	@include mq(android) {
+		max-width: 480px;
+	}
+	@include mq(tablet) {
+		max-width: 768px;
+	}
+	@include mq(laptop) {
+		max-width: 960px;
+	}
+	@include mq(desktop) {
+		max-width: 1280px;
+	}
+}
+
+.responsive-element {
+  @include media(min-width 320px max-width 480px, 6) {
+    @include span-columns(6);
+    
+  }
+  padding-top: 5em;
+  background: $muteBlue;
+  text-align: center;
+}
+
